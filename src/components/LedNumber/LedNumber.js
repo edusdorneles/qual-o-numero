@@ -1,11 +1,79 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import ResponseText from '../ResponseText/ResponseText';
 
 // Styles
 import './styles.css';
 
 const LedNumber = () => {
+    const response = 10;
+
+    const switchLed = () => {
+        // Função para remover a classe "segment-disable" de todos os segmentos.
+        const segment = document.querySelectorAll('.segment')        
+        segment.forEach(segmentDisable => {
+            segmentDisable.classList.remove('segment-disable');
+        });
+        
+        const segmentA = document.querySelector('.segment-a');
+        const segmentB = document.querySelector('.segment-b');
+        const segmentC = document.querySelector('.segment-c');
+        const segmentD = document.querySelector('.segment-d');
+        const segmentE = document.querySelector('.segment-e');
+        const segmentF = document.querySelector('.segment-f');
+        const segmentG = document.querySelector('.segment-g');
+        
+        switch(response) {
+            case 1:                
+                segmentA.classList.add('segment-disable');
+                segmentD.classList.add('segment-disable');
+                segmentE.classList.add('segment-disable');
+                segmentF.classList.add('segment-disable');
+                segmentG.classList.add('segment-disable');
+                break;
+            case 2:                
+                segmentC.classList.add('segment-disable');
+                segmentF.classList.add('segment-disable');
+                break;
+            case 3:
+                segmentE.classList.add('segment-disable');
+                segmentF.classList.add('segment-disable');                
+                break;
+            case 4:
+                segmentA.classList.add('segment-disable');
+                segmentD.classList.add('segment-disable');
+                segmentE.classList.add('segment-disable');
+                break;
+            case 5:
+                segmentB.classList.add('segment-disable');
+                segmentE.classList.add('segment-disable');
+                break;
+            case 6:
+                segmentB.classList.add('segment-disable');
+                break;
+            case 7:
+                segmentD.classList.add('segment-disable');
+                segmentE.classList.add('segment-disable');
+                segmentF.classList.add('segment-disable');
+                segmentG.classList.add('segment-disable');
+                break;
+            case 8:                
+                break;
+            case 9:
+                segmentE.classList.add('segment-disable');
+                break;
+            default:
+                segmentG.classList.add('segment-disable');
+        }
+    }
+
+    useEffect(() => {
+        switchLed();
+    }, []);
+
     return (
         <div className="led-number-container">
+            <ResponseText />
+
             <div className="led-number">                
                 <div className="segment segment-a">
                     <svg width="69" height="15" viewBox="0 0 69 15" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,7 +113,7 @@ const LedNumber = () => {
 
                 <div className="segment segment-g">
                     <svg width="63" height="17" viewBox="0 0 63 17" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M51.4494 0.390018H11.0175L0.249847 8.32726L11.0175 16.2656H26.4329H36.034H51.4494L62.217 8.32726L51.4494 0.390018Z" fill="#DDDDDD"/>
+                        <path d="M51.4494 0.390018H11.0175L0.249847 8.32726L11.0175 16.2656H26.4329H36.034H51.4494L62.217 8.32726L51.4494 0.390018Z" fill="#262A34"/>
                     </svg>
                 </div>
             </div>

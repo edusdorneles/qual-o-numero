@@ -1,5 +1,5 @@
 .header-container {
-    margin-top: 43px;
+    height: 20vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -10,22 +10,22 @@
     font-weight: bold;
     background: linear-gradient(180deg, rgba(239,108,0,1) 60%, rgba(219,99,0,1) 100%);;    
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 12px;
+    -webkit-text-fill-color: transparent;    
     font-size: 36px;
 }
 
 .header-container .gray-line {
     height: 1px;
     width: 100%;
-    max-width: 255px;    
+    max-width: 255px;
+    margin-top: 15px;
     background-color: #CFCFCF;
 }
 
 
 /* Adaptação para mobile */
 @media (max-width: 768px) {
-    .header-container {margin-top: 62px;}
+    /* .header-container {padding-top: 62px;} */
     .header-container h1 {font-size: 24px;}
     .header-container .gray-line {max-width: 205px;}
 }
