@@ -33,6 +33,11 @@ export const GlobalProvider = (props) => {
     const fetchRandomNumber = () => {
         const api = 'https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300';      
 
+        // Redefinindo estados
+        setErrorExist(false);
+        setResultado('');
+        setGanhou(false);
+
         Axios.get(api)
             .catch(error => {
                 setErrorExist(error.response.status);
@@ -47,18 +52,33 @@ export const GlobalProvider = (props) => {
 
     // Verificar se o palpite é menor, maior ou certo
     const [numberInput, setNumberInput] = useState(0);
+    const [resultado, setResultado] = useState('');
+    const [ganhou, setGanhou] = useState(false);
+
     const submitNumberInput = () => {
-        alert(numberInput)
+        const inputFormatado = parseInt(numberInput);
+
+        if(inputFormatado === randomNumber) {
+            setResultado('');
+            setGanhou(true);
+        } else if (inputFormatado < randomNumber) {            
+            setResultado('É menor');
+        } else if (inputFormatado > randomNumber) {            
+            setResultado('É maior');
+        } else {
+            alert('Você não digitou um número válido!')
+        }
     }
+    
+    console.log(randomNumber)
 
     useEffect(() => {
         fetchRandomNumber();
     }, []);
 
-    
 
     return(
-        <GlobalContext.Provider value={{ fetchRandomNumber, randomNumber, errorExist, setNumberInput, submitNumberInput }}>
+        <GlobalContext.Provider value={{ fetchRandomNumber, randomNumber, errorExist, setNumberInput, submitNumberInput, resultado, ganhou }}>
             {props.children}
         </GlobalContext.Provider>
     )

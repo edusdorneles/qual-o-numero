@@ -10,7 +10,7 @@ const Input = () => {
     return (
         <div className="input-container">
             <input 
-                type="text"
+                type="number"                
                 placeholder="Digite o palpite"                
                 onChange={(e) => {setNumberInput(e.target.value)}}
             />
