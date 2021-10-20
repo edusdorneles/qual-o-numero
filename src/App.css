@@ -12,6 +12,7 @@ body {
   background-color: #EEEEEE;
 }
 
+/* Adaptação para mobile */
 @media (min-width: 768px) {
   body {
     background-color: #FBFBFB;
