@@ -25,18 +25,13 @@ export const GlobalProvider = (props) => {
 
         - Utilizo o Hook useEffect para executar a função para gerar o número
         assim que o componente for montado. Para a aplicação ter um valor inicial.
-    */
+    */    
 
     const [randomNumber, setRandomNumber] = useState(0);
-    const [errorExist, setErrorExist] = useState(false);    
+    const [errorExist, setErrorExist] = useState(false);        
 
     const fetchRandomNumber = () => {
-        const api = 'https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300';      
-
-        // Redefinindo estados
-        setErrorExist(false);
-        setResultado('');
-        setGanhou(false);
+        const api = 'https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300';
 
         Axios.get(api)
             .catch(error => {
@@ -48,34 +43,40 @@ export const GlobalProvider = (props) => {
                     setRandomNumber(response.data.value);
                 }
             });
+
+        // Redefinindo estados caso precise reiniciar
+        setErrorExist(false);
+        setResultado('');
+        setGanhou(false);
     }
 
     // Verificar se o palpite é menor, maior ou certo
-    const [numberInput, setNumberInput] = useState(0);
+    const [numberInput, setNumberInput] = useState();
     const [resultado, setResultado] = useState('');
     const [ganhou, setGanhou] = useState(false);
 
     const submitNumberInput = () => {
-        const inputFormatado = parseInt(numberInput);
+        const inputFormatado = parseInt(numberInput);        
 
-        if(inputFormatado === randomNumber) {
-            setResultado('');
-            setGanhou(true);
-        } else if (inputFormatado < randomNumber) {            
-            setResultado('É menor');
-        } else if (inputFormatado > randomNumber) {            
-            setResultado('É maior');
+        if(inputFormatado >= 1 && inputFormatado <= 999) {
+            if(inputFormatado === randomNumber) {
+                setResultado('');
+                setGanhou(true);
+            } else if (inputFormatado < randomNumber) {
+                setResultado('É menor');
+            } else if (inputFormatado > randomNumber) {
+                setResultado('É maior');
+            } else {
+                alert('Você não digitou um número válido!')
+            }
         } else {
-            alert('Você não digitou um número válido!')
+            alert('Digite um valor entre 1 e 999!')
         }
     }
-    
-    console.log(randomNumber)
 
     useEffect(() => {
         fetchRandomNumber();
     }, []);
-
 
     return(
         <GlobalContext.Provider value={{ fetchRandomNumber, randomNumber, errorExist, setNumberInput, submitNumberInput, resultado, ganhou }}>
