@@ -1,4 +1,20 @@
-/* Estilos gerais do componente */
+/* Resposta do servidor */
+.response-text-container {
+    height: 6vh;    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;    
+}
+
+.response-text-response {
+    font-size: 16px;
+    font-weight: bold;
+    color: red;    
+}
+
+
+/* Led Number */
 .led-number-container {
     position: relative;
     width: 100%;
@@ -11,13 +27,13 @@
 
 .led-number {
     position: relative;
-    width: 75px;    
+    width: 75px;
     height: 135px;
     margin: 0px 5px;
 }
 
 
-/* Estilização dos segmentos */
+/* Segmentos */
 .segment {position: absolute;}
 
 .segment-a {    
@@ -59,4 +75,38 @@
 /* Segmento desativado */
 .segment-disable svg path {
     fill: #DDDDDD !important;
+}
+
+
+/* Botão para reiniciar o jogo */
+.restart-container {    
+    height: 5vh;
+    margin-top: 50px;
+}
+
+.restart-button button {
+    width: 130px;
+    height: 42px;
+    border: none;
+    border-radius: 4px;
+    background: linear-gradient(180deg, rgba(67,72,84,1) 0%, rgba(158,158,158,1) 100%);
+    transition: all .2s;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 42px;
+}
+
+.restart-button button:hover {
+    cursor: pointer;
+    opacity: 0.7;   
+}
+
+.restart-button button svg {
+    padding-right: 4px;
 }
