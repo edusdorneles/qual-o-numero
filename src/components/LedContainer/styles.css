@@ -18,7 +18,7 @@
 
 
 /* Led Number */
-.led-number-container {
+.led-container {
     position: relative;
     width: 100%;
     height: 60vh;    
@@ -28,56 +28,10 @@
     flex-direction: column;
 }
 
-.led-number {
-    position: relative;
-    width: 75px;
-    height: 135px;
-    margin: 0px 5px;
-}
-
-
-/* Segmentos */
-.segment {position: absolute;}
-
-.segment-a {    
-    left: 3px;
-    top: 0;
-}
-
-.segment-b {    
-    right: 0;
-    top: 2px;
-}
-
-.segment-c {
-    right: 0;
-    bottom: -1px;
-}
-
-.segment-d {
-    left: 3px;
-    bottom: -3px;
-}
-
-.segment-e {
-    left: 0;
-    bottom: -1px;
-}
-
-.segment-f {
-    left: 0;
-    top: 2px;
-}
-
-.segment-g {
-    left: 6px;
-    top: 59px;
-}
-
-
-/* Segmento desativado */
-.segment-disable svg path {
-    fill: #DDDDDD !important;
+.led-number-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 

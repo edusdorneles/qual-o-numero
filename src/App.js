@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from './components/Layout/Layout';
 import Header from './components/Header/Header';
-import LedNumber from './components/LedNumber/LedNumber';
+import LedContainer from './components/LedContainer/LedContainer';
 import Input from './components/Input/Input';
 
 import './App.css';
@@ -11,7 +11,7 @@ function App() {
     <Layout>
       <Header />
 
-      <LedNumber />
+      <LedContainer />
 
       <Input />
     </Layout>
