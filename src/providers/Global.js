@@ -36,7 +36,8 @@ export const GlobalProvider = (props) => {
         Axios.get(api)
             .catch(error => {
                 const errorArray = error.response.status.toString().split('');
-                setErrorExist(errorArray);
+                setErrorExist(true);
+                setLedNumber(errorArray);
             })
             .then(response => {
                 if(response) {
@@ -48,21 +49,22 @@ export const GlobalProvider = (props) => {
         // Redefinindo estados caso precise reiniciar
         setErrorExist(false);
         setResultado('');
+        setLedNumber([0]);
         setGanhou(false);
     }
 
     // Verificar se o palpite é menor, maior ou certo
     const [numberInput, setNumberInput] = useState();
-    const [ledNumber, setLedNumber] = useState([]);
+    const [ledNumber, setLedNumber] = useState([0]);
     const [resultado, setResultado] = useState('');
     const [ganhou, setGanhou] = useState(false);
 
     const submitNumberInput = () => {
         const inputFormatado = parseInt(numberInput);        
 
-        if(inputFormatado >= 1 && inputFormatado <= 999) {
+        if(inputFormatado >= 1 && inputFormatado <= 300) {
             if(inputFormatado === randomNumber) {
-                setResultado('');
+                setResultado('');                
                 setGanhou(true);
             } else if (inputFormatado < randomNumber) {
                 setResultado('É menor');
@@ -75,7 +77,7 @@ export const GlobalProvider = (props) => {
             const arrayNumbers = inputFormatado.toString().split('');
             setLedNumber(arrayNumbers);
         } else {
-            alert('Digite um valor entre 1 e 999!')
+            alert('Digite um valor entre 1 e 300!')
         }
     }
 
