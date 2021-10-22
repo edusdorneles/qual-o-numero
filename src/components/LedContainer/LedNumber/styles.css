@@ -2,7 +2,7 @@
     position: relative;
     width: 75px;
     height: 135px;
-    margin: 0px 5px;
+    margin: 0px 5px;    
 }
 
 
@@ -48,4 +48,24 @@
 /* Segmento desativado */
 .segment-disable svg path {
     fill: #DDDDDD !important;
+}
+
+
+/* Segmento com erro */
+.led-error .segment-disable svg path {
+    fill: #DDDDDD !important;
+}
+
+.led-error div svg path {
+    fill: #CC3300 !important;
+}
+
+
+/* Segmento de vitória */
+.led-ganhou .segment-disable svg path {
+    fill: #DDDDDD !important;
+}
+
+.led-ganhou div svg path {
+    fill: #32BF00 !important;
 }

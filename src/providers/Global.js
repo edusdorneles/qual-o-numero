@@ -35,7 +35,8 @@ export const GlobalProvider = (props) => {
 
         Axios.get(api)
             .catch(error => {
-                setErrorExist(error.response.status);
+                const errorArray = error.response.status.toString().split('');
+                setErrorExist(errorArray);
             })
             .then(response => {
                 if(response) {
@@ -52,6 +53,7 @@ export const GlobalProvider = (props) => {
 
     // Verificar se o palpite é menor, maior ou certo
     const [numberInput, setNumberInput] = useState();
+    const [ledNumber, setLedNumber] = useState([]);
     const [resultado, setResultado] = useState('');
     const [ganhou, setGanhou] = useState(false);
 
@@ -67,8 +69,11 @@ export const GlobalProvider = (props) => {
             } else if (inputFormatado > randomNumber) {
                 setResultado('É maior');
             } else {
-                alert('Você não digitou um número válido!')
+                alert('Você não digitou um número válido!');
             }
+
+            const arrayNumbers = inputFormatado.toString().split('');
+            setLedNumber(arrayNumbers);
         } else {
             alert('Digite um valor entre 1 e 999!')
         }
@@ -79,7 +84,7 @@ export const GlobalProvider = (props) => {
     }, []);
 
     return(
-        <GlobalContext.Provider value={{ fetchRandomNumber, randomNumber, errorExist, setNumberInput, submitNumberInput, resultado, ganhou }}>
+        <GlobalContext.Provider value={{ fetchRandomNumber, randomNumber, errorExist, setNumberInput, submitNumberInput, resultado, ganhou, ledNumber }}>
             {props.children}
         </GlobalContext.Provider>
     )

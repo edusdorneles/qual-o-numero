@@ -6,7 +6,9 @@ import { useGlobal } from '../../providers/Global';
 import './styles.css';
 
 const LedContainer = () => {
-    const { errorExist, fetchRandomNumber, resultado, ganhou } = useGlobal();
+    const { errorExist, randomNumber, fetchRandomNumber, resultado, ganhou, ledNumber } = useGlobal();
+
+    console.log(randomNumber)
 
     return (
         <div className="led-container">
@@ -26,9 +28,16 @@ const LedContainer = () => {
 
             {/* Segmentos de LED */}
             <div className="led-number-container">
-                <LedNumber />
-                <LedNumber />
-                <LedNumber />
+                {
+                    errorExist &&
+                    errorExist.map((error, idx) => (
+                        <LedNumber key={idx} number={error} />
+                    ))
+                }
+
+                {ledNumber.map((number, idx) => (
+                    <LedNumber key={idx} number={number} />
+                ))}
             </div>
 
             {/* Reiniciar o jogo */}
