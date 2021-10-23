@@ -1,20 +1,20 @@
 import React from 'react';
-import Layout from './components/Layout/Layout';
 import Header from './components/Header/Header';
 import LedContainer from './components/LedContainer/LedContainer';
 import Input from './components/Input/Input';
 
+// Styles
 import './App.css';
 
 function App() {
   return(
-    <Layout>
+    <div className="container">
       <Header />
 
       <LedContainer />
 
       <Input />
-    </Layout>
+    </div>
   );
 }
 

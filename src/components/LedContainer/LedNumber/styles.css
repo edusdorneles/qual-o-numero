@@ -1,3 +1,4 @@
+/* Geral */
 .led-number {
     position: relative;
     width: 75px;
@@ -47,7 +48,7 @@
 
 /* Segmento desativado */
 .segment-disable svg path {
-    fill: #DDDDDD !important;
+    fill: #DDDDDD !important;    
 }
 
 

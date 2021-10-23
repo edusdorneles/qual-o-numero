@@ -1,7 +1,7 @@
 /* Importando fonte do projeto */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&display=swap');
 
-/* Estilos gerais */
+/* Geral */
 * {
   margin: 0;
   padding: 0;
@@ -11,4 +11,20 @@
 html, body, #root {
   background-color: #FBFBFB;
   height: 100% !important;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+}
+
+
+/* Adaptação para mobile */
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
 }

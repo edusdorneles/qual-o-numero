@@ -4,25 +4,28 @@ import { useGlobal } from '../../providers/Global';
 // Styles
 import './styles.css';
 
-const Input = () => {    
-    /*
-        Lógica:
-        - Busco estados e funções do global context.
 
-        - Defino uma referência para o input utilizando o Hook useRef,
-        e depois crio uma função para limpar tanto o campo quanto
-        o estado do input.
-    */
+/*
+    Lógica:
+    - Assim que o componente montar (ou quando os estados definidos mudarem),
+    faço uma verificação, caso ocorra um erro ou o usuário tenha ganho, adiciono
+    as classes de "disable" para o input e para o botão.
 
+    Obs: As funções executadas no "onClick" do input e do botão, estão sendo
+    importadas pelo context "Global".
+*/
+
+
+const Input = () => {
     const { errorExist, ganhou, setNumberInput, submitNumberInput } = useGlobal();
+    const [disabled, setDisabled] = useState(false)
 
+    // Função para limpar o campo de input
     const inputRef = useRef();
     const clearInput = () => {        
         setNumberInput();
         inputRef.current.value = '';
     }
-    
-    const [disabled, setDisabled] = useState(false)
 
     useEffect(() => {
         if(errorExist || ganhou) {

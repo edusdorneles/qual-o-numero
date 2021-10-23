@@ -4,6 +4,25 @@ import { useGlobal } from '../../../providers/Global';
 // Styles
 import './styles.css';
 
+
+/*
+    Lógica:
+    - Crio uma array para guardar os segmentos que precisam 
+    ficar desativados.
+
+    - Dependendo do número que o componente receber, vão ter
+    certos segmentos que serão desativados.
+
+    - Faço uma adição de classe condicional, caso dentro da
+    array conter o mesmo nome da classe, adiciono o estilo de
+    segmento desativado.
+
+    - Na "div" principal, faço uma adição de classe conficional,
+    caso houver erro ou vitória, adiciono as classes correspondentes
+    para fazer a estilização.
+*/
+
+
 const LedNumber = ({ number }) => {
     const { errorExist, ganhou } = useGlobal();
     let disabledSegments = [];

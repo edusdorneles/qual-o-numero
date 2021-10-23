@@ -1,3 +1,4 @@
+/* Geral */
 .header-container {
     height: 20%;
     display: flex;
@@ -25,7 +26,6 @@
 
 /* Adaptação para mobile */
 @media (max-width: 768px) {
-    /* .header-container {padding-top: 62px;} */
     .header-container h1 {font-size: 24px;}
     .header-container .gray-line {max-width: 205px;}
 }

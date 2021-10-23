@@ -1,32 +1,29 @@
 import React, { useState, useEffect } from "react";
 import Axios from 'axios';
 
-const GlobalContext = React.createContext({});
 
-export const GlobalProvider = (props) => {    
-    /*
-        Lógica:
-        - Crio dois estados, um para caso haja erros e outro para
-        armazenar a resposta do servidor (caso não haja erro).
+/*
+    Lógica:
+    - Crio uma função para ser chamada sempre que precisar fazer
+    uma requisição para o servidor.
 
-        - Crio uma função para ser chamada sempre que precisar fazer
-        uma requisição para o servidor.
-
-        - Defino uma constante para a URL da API.
-
-        - Inicio o Axios (biblioteca para fazer requisições HTTP)
+        1. Inicio o Axios (biblioteca para fazer requisições HTTP)
         e defino o metódo "GET", para buscar dados do servidor.
 
-        - Logo após, confiro se há algum erro, caso haja, seto qual o "status"
-        do erro e seto esse status no meu estado de "errorExist".
+        2. Caso haja erro, capturo qual o status deste erro e atrelo
+        no meu estado que vai mostrar o "StatusCode" nos segmentos de LED.
 
-        - Depois, caso haja uma resposta sem erros, seto a resposta do servidor
-        no meu estado "randomNumber".
+        3. Caso não haja erros, seto que não houve erros e atrelo a 
+        resposta do meu servidor à um estado que guarda esta resposta.
 
-        - Utilizo o Hook useEffect para executar a função para gerar o número
-        assim que o componente for montado. Para a aplicação ter um valor inicial.
-    */    
+    - Utilizo o Hook useEffect para executar a função para buscar um número
+    assim que o componente for montado. Para a aplicação ter um valor inicial.
+*/
 
+
+const GlobalContext = React.createContext({});
+
+export const GlobalProvider = (props) => {
     const [randomNumber, setRandomNumber] = useState(0);
     const [errorExist, setErrorExist] = useState(false);        
 
@@ -46,7 +43,7 @@ export const GlobalProvider = (props) => {
                 }
             });
 
-        // Redefinindo estados caso precise reiniciar
+        // Redefinindo estados caso precise reiniciar o jogo
         setErrorExist(false);
         setResultado('');
         setLedNumber([0]);
@@ -64,20 +61,21 @@ export const GlobalProvider = (props) => {
 
         if(inputFormatado >= 1 && inputFormatado <= 300) {
             if(inputFormatado === randomNumber) {
-                setResultado('');                
+                setResultado('');
                 setGanhou(true);
             } else if (inputFormatado < randomNumber) {
-                setResultado('É menor');
-            } else if (inputFormatado > randomNumber) {
                 setResultado('É maior');
+            } else if (inputFormatado > randomNumber) {
+                setResultado('É menor');
             } else {
                 alert('Você não digitou um número válido!');
             }
 
+            // Splita os números inseridos no input e cria um array
             const arrayNumbers = inputFormatado.toString().split('');
             setLedNumber(arrayNumbers);
         } else {
-            alert('Digite um valor entre 1 e 300!')
+            alert('Digite um valor entre 1 e 300!');
         }
     }
 
