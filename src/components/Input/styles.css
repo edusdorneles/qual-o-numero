@@ -14,7 +14,7 @@
     padding: 12px 14px;
     border-radius: 4px;
     border: 1px solid #CFCFCF;
-    transition: all .2s;
+    transition: all .2s;    
 }
 
 .input-container input:focus {
@@ -30,8 +30,13 @@
     color: white;
     border: 0;
     border-radius: 4px;
-    transition: all .2s;
+    transition: all .2s;    
+    padding: 15px 14px;
     font-weight: bold;
+    font-size: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .input-container button:hover {
@@ -42,4 +47,10 @@
 .input-container button.disabled-button {
     cursor: not-allowed;
     background-color: #DDDDDD;
+}
+
+
+/* Adaptação para mobile */
+@media (max-width: 768px) {
+    
 }

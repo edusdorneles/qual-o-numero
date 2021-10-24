@@ -3,7 +3,7 @@
     position: relative;
     width: 75px;
     height: 135px;
-    margin: 0px 5px;    
+    margin: 0px 5px;
 }
 
 
@@ -69,4 +69,13 @@
 
 .led-ganhou div svg path {
     fill: #32BF00 !important;
+}
+
+
+/* Adaptação para mobile */
+@media (max-width: 768px) {
+    .led-number {
+        transform: scale(0.75);
+        margin: -5px;
+    }
 }

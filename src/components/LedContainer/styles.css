@@ -67,3 +67,11 @@
 .restart-button button svg {
     padding-right: 4px;
 }
+
+
+/* Adaptação para mobile */
+@media (max-width: 768px) {
+    .response-text-container {
+        margin-bottom: 24px;
+    }
+}
