@@ -31,7 +31,7 @@ const LedContainer = () => {
                     { resultado && <p className="response-other">{resultado}</p> }
 
                     {/* Caso ganhe */}
-                    { ganhou && <p className="response-win">Você ganhou!!!!</p> }
+                    { ganhou && <p className="response-win">Você acertou!!!</p> }
                 </h4>
             </div>
 

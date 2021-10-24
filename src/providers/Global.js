@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import Axios from 'axios';
 
 
 /*
@@ -7,14 +6,16 @@ import Axios from 'axios';
     - Crio uma função para ser chamada sempre que precisar fazer
     uma requisição para o servidor.
 
-        1. Inicio o Axios (biblioteca para fazer requisições HTTP)
-        e defino o metódo "GET", para buscar dados do servidor.
+        1. Utilizo o "fetch" para fazer uma requisição HTTP ao servidor.
 
-        2. Caso haja erro, capturo qual o status deste erro e atrelo
-        no meu estado que vai mostrar o "StatusCode" nos segmentos de LED.
+        2. Caso ocorra um erro, capturo o "StatusCode" deste erro e atrelo no
+        meu estado que vai mostrar este "StatusCode" nos segmentos de LED.
 
-        3. Caso não haja erros, seto que não houve erros e atrelo a 
-        resposta do meu servidor à um estado que guarda esta resposta.
+        3. Caso a resposta ocorra sem erros, retorno o JSON desta resposta.
+
+        4. Verifico se existe retorno, se sim, atrelo que o valor "false" para
+        o meu estado de erros e atrelo a resposta do servidor ao estado que vai
+        guardar o valor sortido.
 
     - Utilizo o Hook useEffect para executar a função para buscar um número
     assim que o componente for montado. Para a aplicação ter um valor inicial.
@@ -30,17 +31,25 @@ export const GlobalProvider = (props) => {
     const fetchRandomNumber = () => {
         const api = 'https://us-central1-ss-devops.cloudfunctions.net/rand?min=1&max=300';
 
-        Axios.get(api)
-            .catch(error => {
-                const errorArray = error.response.status.toString().split('');
-                setErrorExist(true);
-                setLedNumber(errorArray);
-            })
+        fetch(api)
             .then(response => {
-                if(response) {
-                    setErrorExist(false);
-                    setRandomNumber(response.data.value);
+                if(response.ok) {
+                    return response.json();                    
+                } else {
+                    const errorArray = response.status.toString().split('');
+                    setErrorExist(true);
+                    setLedNumber(errorArray);
                 }
+            })
+            .then(data => {
+                if(data) {
+                    setErrorExist(false);
+                    setRandomNumber(data.value);
+                }
+            })
+            .catch(error => {
+                setErrorExist(true);
+                console.log('Ocorreu um erro no fetch: ' + error.message);
             });
 
         // Redefinindo estados caso precise reiniciar o jogo
