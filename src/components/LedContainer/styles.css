@@ -1,77 +1,84 @@
 /* Resposta do servidor */
 .response-text-container {
-    height: 6%;    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 35px;    
+  height: 6%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 35px;
 }
 
 .response-text-response {
-    font-size: 16px;
-    font-weight: bold;    
+  font-size: 16px;
+  font-weight: bold;
 }
 
-.response-error {color: #CC3300}
-.response-win {color: #32BF00}
-.response-other {color: #FF6600}
-
+.response-error {
+  color: #cc3300;
+}
+.response-win {
+  color: #32bf00;
+}
+.response-other {
+  color: #ff6600;
+}
 
 /* Led Number */
 .led-container {
-    position: relative;
-    width: 100%;
-    height: 60%;    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+  position: relative;
+  width: 100%;
+  height: 60%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .led-number-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-
 /* Botão para reiniciar o jogo */
-.restart-container {    
-    height: 5%;
-    margin-top: 50px;
+.restart-container {
+  height: 5%;
+  margin-top: 50px;
 }
 
 .restart-button button {
-    width: 130px;
-    height: 42px;
-    border: none;
-    border-radius: 4px;
-    background: linear-gradient(180deg, rgba(67,72,84,1) 0%, rgba(158,158,158,1) 100%);
-    transition: all .2s;
+  width: 130px;
+  height: 42px;
+  border: none;
+  border-radius: 4px;
+  background: linear-gradient(
+    180deg,
+    rgba(67, 72, 84, 1) 0%,
+    rgba(158, 158, 158, 1) 100%
+  );
+  transition: all 0.2s;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    color: white;
-    font-weight: bold;
-    font-size: 12px;
-    line-height: 42px;
+  color: white;
+  font-weight: bold;
+  font-size: 12px;
+  line-height: 42px;
 }
 
 .restart-button button:hover {
-    cursor: pointer;
-    opacity: 0.7;   
+  cursor: pointer;
+  opacity: 0.7;
 }
 
 .restart-button button svg {
-    padding-right: 4px;
+  padding-right: 4px;
 }
-
 
 /* Adaptação para mobile */
 @media (max-width: 768px) {
-    .response-text-container {
-        margin-bottom: 24px;
-    }
+  .response-text-container {
+    margin-bottom: 24px;
+  }
 }

@@ -1,81 +1,78 @@
 /* Geral */
 .led-number {
-    position: relative;
-    width: 75px;
-    height: 135px;
-    margin: 0px 5px;
+  position: relative;
+  width: 75px;
+  height: 135px;
+  margin: 0px 5px;
 }
-
 
 /* Segmentos */
-.segment {position: absolute;}
-
-.segment-a {    
-    left: 3px;
-    top: 0;
+.segment {
+  position: absolute;
 }
 
-.segment-b {    
-    right: 0;
-    top: 2px;
+.segment-a {
+  left: 3px;
+  top: 0;
+}
+
+.segment-b {
+  right: 0;
+  top: 2px;
 }
 
 .segment-c {
-    right: 0;
-    bottom: -1px;
+  right: 0;
+  bottom: -1px;
 }
 
 .segment-d {
-    left: 3px;
-    bottom: -3px;
+  left: 3px;
+  bottom: -3px;
 }
 
 .segment-e {
-    left: 0;
-    bottom: -1px;
+  left: 0;
+  bottom: -1px;
 }
 
 .segment-f {
-    left: 0;
-    top: 2px;
+  left: 0;
+  top: 2px;
 }
 
 .segment-g {
-    left: 6px;
-    top: 59px;
+  left: 6px;
+  top: 59px;
 }
-
 
 /* Segmento desativado */
 .segment-disable svg path {
-    fill: #DDDDDD !important;    
+  fill: #dddddd !important;
 }
-
 
 /* Segmento com erro */
 .led-error .segment-disable svg path {
-    fill: #DDDDDD !important;
+  fill: #dddddd !important;
 }
 
 .led-error div svg path {
-    fill: #CC3300 !important;
+  fill: #cc3300 !important;
 }
-
 
 /* Segmento de vitória */
 .led-ganhou .segment-disable svg path {
-    fill: #DDDDDD !important;
+  fill: #dddddd !important;
 }
 
 .led-ganhou div svg path {
-    fill: #32BF00 !important;
+  fill: #32bf00 !important;
 }
-
 
 /* Adaptação para mobile */
 @media (max-width: 768px) {
-    .led-number {
-        transform: scale(0.75);
-        margin: -5px;
-    }
+  .led-number {
+    transform: scale(0.75);
+    margin: -5px;
+  }
 }
